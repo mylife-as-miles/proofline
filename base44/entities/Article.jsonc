@@ -1,0 +1,60 @@
+{
+  "name": "Article",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "The text's title"
+    },
+    "author": {
+      "type": "string",
+      "description": "Who wrote it"
+    },
+    "published": {
+      "type": "string",
+      "description": "Year or date, as shown"
+    },
+    "dek": {
+      "type": "string",
+      "description": "One line under the title"
+    },
+    "source": {
+      "type": "string",
+      "description": "Where it came from"
+    },
+    "source_url": {
+      "type": "string",
+      "description": "Original link, if imported from the web"
+    },
+    "image": {
+      "type": "string",
+      "description": "Lead image URL"
+    },
+    "topic": {
+      "type": "string",
+      "default": "unsorted",
+      "description": "Shelf topic key"
+    },
+    "origin": {
+      "type": "string",
+      "default": "url",
+      "description": "url, paste or sample"
+    },
+    "words": {
+      "type": "number",
+      "description": "Word count"
+    },
+    "minutes": {
+      "type": "number",
+      "description": "Reading time in minutes"
+    },
+    "blocks": {
+      "type": "string",
+      "description": "The text as JSON: an array of blocks"
+    }
+  },
+  "required": [
+    "title",
+    "blocks"
+  ]
+}

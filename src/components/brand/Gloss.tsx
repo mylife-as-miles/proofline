@@ -1,0 +1,36 @@
+import Link from "@/platform/link";
+
+/** Lines of text with a note in the margin: the whole idea in 24px. */
+export function GlossMark({ className = "size-6" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden className={className}>
+      <path d="M3 6.5h10.5M3 11.5h10.5M3 16.5h6.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M18.5 3v18" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" opacity="0.32" />
+      <circle cx="18.5" cy="11.5" r="2.9" fill="var(--rubric)" />
+    </svg>
+  );
+}
+
+/**
+ * The wordmark. The serif's line box is set to its own size and nudged so
+ * the word's cap height is centered on the mark.
+ */
+export function GlossWordmark() {
+  return (
+    <span className="flex h-9 items-center gap-[7px] text-ink">
+      <GlossMark className="size-[21px] shrink-0" />
+      <span className="block translate-y-[2px] font-serif text-[21px] font-[440] leading-[21px] tracking-[-0.018em] [font-variation-settings:'opsz'_36]">
+        Proofline
+      </span>
+    </span>
+  );
+}
+
+/** The app's mark and name, linked home. */
+export function Lockup({ href = "/" }: { href?: string }) {
+  return (
+    <Link href={href} aria-label="Proofline, back to your library" className="flex h-9 items-center rounded-md">
+      <GlossWordmark />
+    </Link>
+  );
+}

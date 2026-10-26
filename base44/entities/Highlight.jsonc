@@ -1,0 +1,43 @@
+{
+  "name": "Highlight",
+  "type": "object",
+  "properties": {
+    "article_id": {
+      "type": "string",
+      "description": "The text the passage sits in"
+    },
+    "article_title": {
+      "type": "string",
+      "description": "The text's title, kept for lists"
+    },
+    "quote": {
+      "type": "string",
+      "description": "The marked passage"
+    },
+    "block_id": {
+      "type": "string",
+      "description": "The block it starts in"
+    },
+    "start": {
+      "type": "number",
+      "description": "Character offset where the passage begins"
+    },
+    "end": {
+      "type": "number",
+      "description": "Character offset where the passage ends"
+    },
+    "note": {
+      "type": "string",
+      "description": "A note of your own, if you wrote one"
+    },
+    "color": {
+      "type": "string",
+      "default": "yellow",
+      "description": "Marker colour"
+    }
+  },
+  "required": [
+    "article_id",
+    "quote"
+  ]
+}

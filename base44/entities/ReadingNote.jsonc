@@ -1,0 +1,47 @@
+{
+  "name": "ReadingNote",
+  "type": "object",
+  "properties": {
+    "article_id": {
+      "type": "string",
+      "description": "The text this note sits beside"
+    },
+    "article_title": {
+      "type": "string",
+      "description": "The text's title, kept for lists"
+    },
+    "question": {
+      "type": "string",
+      "description": "What the reader asked"
+    },
+    "answer": {
+      "type": "string",
+      "description": "The margin answer"
+    },
+    "quote": {
+      "type": "string",
+      "description": "The passage the question was asked of"
+    },
+    "block_id": {
+      "type": "string",
+      "description": "The block the note is placed beside"
+    },
+    "start": {
+      "type": "number",
+      "description": "Character offset where the passage begins"
+    },
+    "end": {
+      "type": "number",
+      "description": "Character offset where the passage ends"
+    },
+    "citations": {
+      "type": "string",
+      "description": "Paragraph numbers the answer used, as JSON"
+    }
+  },
+  "required": [
+    "article_id",
+    "question",
+    "answer"
+  ]
+}

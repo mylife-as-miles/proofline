@@ -1,0 +1,258 @@
+/* The page-flip view: a bound book of leaves you can turn. */
+
+.flip-page {
+  position: relative;
+  height: 100%;
+  box-sizing: border-box;
+  /* The library clones each leaf and drops its inline style, so the page
+     margins live in CSS — the same value the text is measured against. */
+  padding: var(--flip-pad, 38px);
+  /* No overflow clipping here: it would flatten the library's preserve-3d
+     leaves. The text block itself is clipped instead. */
+  background: var(--bg-raised);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--rule) 70%, transparent);
+}
+
+/* The outer edges of the bound book: rounded boards, square at the fold. */
+.flip-book .flip-page.--left {
+  border-radius: 4px 0 0 4px;
+}
+.flip-book .flip-page.--right {
+  border-radius: 0 4px 4px 0;
+}
+
+/* The shade that gathers in the gutter, so a spread reads as one folded sheet. */
+.flip-page:not(.flip-cover)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 46px;
+  pointer-events: none;
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--ink) 20%, transparent),
+    color-mix(in srgb, var(--ink) 5%, transparent) 45%,
+    transparent
+  );
+}
+.flip-book .flip-page.--right:not(.flip-cover)::before {
+  left: 0;
+}
+.flip-book .flip-page.--left:not(.flip-cover)::before {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    color-mix(in srgb, var(--ink) 20%, transparent),
+    color-mix(in srgb, var(--ink) 5%, transparent) 45%,
+    transparent
+  );
+}
+
+/* The stacked leaves of the block, so the outer edge has thickness. */
+.flip-book .flip-page:not(.flip-cover)::after {
+  content: "";
+  position: absolute;
+  top: 9px;
+  bottom: 9px;
+  width: 5px;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to right,
+    color-mix(in srgb, var(--ink) 10%, transparent) 0 1px,
+    transparent 1px 3px
+  );
+}
+.flip-book .flip-page.--left:not(.flip-cover)::after {
+  left: 3px;
+}
+.flip-book .flip-page.--right:not(.flip-cover)::after {
+  right: 3px;
+}
+
+.flip-body {
+  font-family: var(--font-book);
+  color: var(--ink-2);
+  font-size: 15.5px;
+  line-height: 1.74;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+.flip-page .flip-body {
+  max-height: calc(100% - 24px);
+  overflow: hidden;
+}
+
+.flip-body p {
+  margin: 0 0 0.82em;
+  text-indent: 1.15em;
+}
+.flip-body p:first-child,
+.flip-body h2 + p,
+.flip-body h3 + p,
+.flip-body blockquote + p {
+  text-indent: 0;
+}
+.flip-body h2 {
+  font-family: var(--font-serif);
+  font-size: 19px;
+  line-height: 1.24;
+  color: var(--ink);
+  text-align: left;
+  text-indent: 0;
+  margin: 1.15em 0 0.55em;
+  letter-spacing: -0.01em;
+}
+.flip-body h3 {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  line-height: 1.3;
+  color: var(--ink);
+  text-align: left;
+  text-indent: 0;
+  margin: 1em 0 0.45em;
+}
+.flip-body blockquote {
+  margin: 0.9em 0;
+  padding-left: 0.9em;
+  border-left: 2px solid var(--rule-strong);
+  color: var(--ink-3);
+  font-style: italic;
+  text-indent: 0;
+}
+.flip-body .flip-li {
+  padding-left: 1.05em;
+  text-indent: -1.05em;
+  text-align: left;
+  margin-bottom: 0.45em;
+}
+.flip-body .flip-note {
+  font-size: 13px;
+  color: var(--ink-3);
+  text-align: left;
+  text-indent: 0;
+}
+.flip-body pre {
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  background: var(--bg-sunk);
+  padding: 9px 11px;
+  border-radius: 5px;
+  text-align: left;
+}
+.flip-body .flip-table {
+  font-size: 12.5px;
+  line-height: 1.9;
+  text-align: left;
+  text-indent: 0;
+}
+.flip-body a {
+  text-decoration: underline;
+  text-decoration-color: var(--rule-strong);
+  text-underline-offset: 2px;
+}
+.flip-body code {
+  font-family: var(--font-sans);
+  font-size: 0.86em;
+}
+
+.flip-folio {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 9px;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+
+/* The boards: the plate at the front and the colophon at the back. */
+.flip-cover {
+  background: var(--lens-bg);
+  color: var(--lens-fg);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, #000 40%, transparent);
+}
+.flip-cover-in {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+.flip-kicker {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--lens-mute);
+}
+.flip-mid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.flip-cover-title {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 4.4vw, 32px);
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+  color: var(--lens-fg);
+}
+.flip-cover-by {
+  font-size: 12.5px;
+  color: var(--lens-mute);
+}
+.flip-end-link {
+  display: inline-flex;
+  align-items: center;
+  align-self: center;
+  gap: 7px;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--lens-fg) 30%, transparent);
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  color: var(--lens-fg);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.flip-end-link:hover {
+  border-color: var(--lens-fg);
+  background: color-mix(in srgb, var(--lens-fg) 10%, transparent);
+}
+
+/* The library's own frame: the block sits on the page with a contact shadow.
+   (box-shadow, not filter: a filter would flatten the 3D leaves.) */
+.flip-book {
+  margin: 0 auto;
+  box-shadow: 0 20px 34px -22px color-mix(in srgb, var(--ink) 45%, transparent);
+}
+
+/* A finger on the book turns it: the browser must not claim the gesture for
+   panning, or a swipe scrolls the page instead of lifting a leaf. */
+.flip-book,
+.flip-book .stf__block,
+.flip-book .stf__item {
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* The bound edge of the boards, so a closed cover reads as a book too. */
+.flip-cover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 14px;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(to right, color-mix(in srgb, #000 45%, transparent), transparent);
+}

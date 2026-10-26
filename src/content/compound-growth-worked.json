@@ -1,0 +1,37 @@
+{
+  "id": "compound-growth-worked",
+  "title": "Compound growth, worked",
+  "author": "Proofline",
+  "published": "2026",
+  "dek": "A three-line worked example, written for this app to show what the Explore model does. It is an illustration, not a reading.",
+  "source": "Proofline worked example (original, bundled)",
+  "blocks": [
+    {
+      "id": "c1",
+      "type": "p",
+      "runs": [
+        {
+          "text": "Take one hundred units and add a tenth of whatever is there at each step. After one step there are one hundred and ten units; after two, one hundred and twenty-one. The rate never changes, and nothing new is ever put in."
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "type": "p",
+      "runs": [
+        {
+          "text": "Because each step is a tenth of the whole, the amount added grows as the total grows: the first step adds ten units, the second adds eleven. That is the whole of the idea, and it is arithmetic anyone can check by hand."
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "type": "p",
+      "runs": [
+        {
+          "text": "This page is a toy. It carries no evidence about the world and no one else's argument. Select the first paragraph and choose More, then Explore this idea: the model there runs the same rule on any starting amount, rate and number of steps you set, and says plainly what it assumed."
+        }
+      ]
+    }
+  ]
+}
