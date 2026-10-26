@@ -4,6 +4,10 @@
 
 The original Base44 setup guide below is retained for reference. Its GitHub-sync and publishing instructions apply only after a working integration has been established; they do not describe a connection verified for this backup.
 
+## Licensing — limited scope
+
+This is **not a whole-repository MIT license**. The [licensing scope notice](LICENSE) limits the [MIT grant](licenses/Proofline-Contributions-MIT.txt) to original copyrightable contributions by Osita Miles. Third-party material is excluded. License terms for inherited [Gloss](https://github.com/Nutlope/gloss) material have not yet been identified; no rights to that material are granted here.
+
 ## Original Base44 setup guide
 
 Use this repository to run and edit the app locally, then publish changes back through Base44.
@@ -66,4 +70,5 @@ GitHub integration: [https://docs.base44.com/developers/app-code/local-developme
 Local development: [https://docs.base44.com/developers/backend/overview/local-dev/local-development-overview](https://docs.base44.com/developers/backend/overview/local-dev/local-development-overview)
 
 Support: [https://app.base44.com/support](https://app.base44.com/support)
+
 

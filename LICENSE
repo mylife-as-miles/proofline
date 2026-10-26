@@ -1,0 +1,16 @@
+Proofline licensing scope
+========================
+
+This repository is NOT licensed in its entirety under the MIT License.
+
+The MIT License in licenses/Proofline-Contributions-MIT.txt applies only to
+original copyrightable contributions authored by Osita Miles, and only to the
+extent that Osita Miles holds the rights necessary to license them. It does not
+license an entire file merely because that file contains a Proofline modification.
+
+Third-party code, assets, dependencies, and other material are excluded from
+this grant and retain their respective rights and license terms. This repository
+includes material derived from Gloss: https://github.com/Nutlope/gloss
+
+Applicable upstream license terms for that Gloss material have not yet been
+identified. No permission or relicensing of that material is granted here.
