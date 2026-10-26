@@ -1,4 +1,10 @@
-# Base44 Project
+# Proofline
+
+> **Repository status:** This repository is a recovered source backup, not a verified GitHub-synced Base44 project. Pushing commits here does not automatically update or publish the live app. See [Source recovery and limitations](SOURCE_RECOVERY.md) for provenance, missing local setup files, and verification status.
+
+The original Base44 setup guide below is retained for reference. Its GitHub-sync and publishing instructions apply only after a working integration has been established; they do not describe a connection verified for this backup.
+
+## Original Base44 setup guide
 
 Use this repository to run and edit the app locally, then publish changes back through Base44.
 

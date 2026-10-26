@@ -14,7 +14,7 @@ export type ModelEntry = {
 };
 
 /**
- * The allow-list. Route and UI both read it. Gemini 3.8 Flash answers
+ * The allow-list. Route and UI both read it. Gemini Flash answers
  * everything: one model, quick enough for a margin note and steady enough for
  * a whole-text brief. Older answers and settings may still name another model;
  * anything that looks one up goes through modelOf(), which falls back to Flash.
@@ -22,7 +22,7 @@ export type ModelEntry = {
 export const MODELS = {
   flash: {
     id: "gemini-3.8-flash",
-    label: "Gemini 3.8 Flash",
+    label: "Gemini Flash",
     short: "Quick",
     blurb: "Answers in about a second. Best for most questions.",
     inPerM: 0.3,

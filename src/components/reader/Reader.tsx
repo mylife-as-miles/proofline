@@ -607,7 +607,7 @@ function ReaderInner({ article }: { article: Article }) {
                   ❦
                 </p>
                 {article.source && <p>From {article.source}.</p>}
-                <p className="mt-1">Proofs are powered by Gemini 3.8 Flash.</p>
+                <p className="mt-1">Proofs are powered by Gemini Flash.</p>
                 <div className="mt-6 flex flex-wrap gap-2">
                   <button type="button" onClick={() => setUI({ notebookOpen: true })} className="h-9 rounded-full border border-rule px-4 text-[13px] font-medium text-ink-2 hover:border-rule-strong hover:text-ink">
                     Open your notebook
